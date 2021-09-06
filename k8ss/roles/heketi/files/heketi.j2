@@ -1,0 +1,31 @@
+{
+  "_port_comment": "Heketi Server Port Number",
+  "port": "8080",
+  "_use_auth": "Enable JWT authorization. Please enable for deployment",
+  "use_auth": true,
+  "_jwt": "Private keys for access",
+  "jwt": {
+   "_admin": "HeketiAdmin",
+   "admin": {
+    "key": "{{ heketi.admin }}"
+   },
+   "_user": "HeketiUser",
+   "user": {
+    "key": "{{ heketi.key }}"
+   }
+  },
+  "_glusterfs_comment": "GlusterFS Configuration",
+  "glusterfs": {
+   "executor": "ssh",
+   "sshexec": {
+     "keyfile": "{{ heketi.ssh.keyfile }}",
+     "user": "{{ heketi.ssh.user }}",
+     "port": "{{ heketi.ssh.port }}",
+     "fstab": "/etc/fstab"
+   }
+  },
+  "_db_comment": "Database file name",
+  "db": "{{ heketi.db.path }}",
+  "loglevel" : "{{ heketi.db.loglevel }}"
+  }
+}

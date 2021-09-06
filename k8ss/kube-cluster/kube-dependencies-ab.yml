@@ -1,0 +1,57 @@
+- hosts: master node k8s-entry
+  become: yes
+  tasks:
+   - name: remove Docker
+     apt:
+       name: docker-ce
+       state: absent
+     loop:
+        - docker-ce
+        - docker-ce-cli
+        - docker-ce-rootless-extras
+        - containerd.io
+
+   - name: install kubelet
+     apt:
+        name: kubelet
+        state: absent
+        force: yes
+
+   - name: install kubeadm
+     apt:
+       name: kubeadm
+       state: absent
+       force: yes
+
+   - name: install kubectl
+     apt:
+       name: kubectl
+       state: absent
+       force: yes
+
+   - name: autoremove
+     apt:
+        autoremove: yes   
+
+   - name: autoclean
+     apt:
+        autoclean: yes
+
+   - name: reboot
+     reboot:
+        reboot_timeout: 3600 
+
+   - name: remove paths
+     file:
+        path: "{{ item }}"
+        state: absent
+     loop:
+        - /usr/libexec/kubernetes
+        - /etc/kubernetes
+        - /var/lib/kubelet
+        - /root/cluster_initialized.txt
+        - /var/lib/docker
+
+   - name: reboot
+     reboot:
+        reboot_timeout: 3600 

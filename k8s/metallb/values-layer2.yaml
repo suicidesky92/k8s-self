@@ -1,0 +1,11 @@
+configInline:
+  address-pools:
+   - name: VMnetwork
+     protocol: layer2
+     addresses:
+     - *.132.202.86-*.132.202.90
+secretGenerator:
+  - name: memberlist
+    namespace: default
+    files:
+      - secretkey

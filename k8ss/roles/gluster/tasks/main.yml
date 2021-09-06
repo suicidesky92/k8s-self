@@ -1,0 +1,29 @@
+---
+- name: Gluster
+  become: True
+  block:
+    - name: install ntp
+      apt:
+        name: "ntp"
+        state: present
+
+    - name: install gluster
+      apt:
+        update_cache: yes
+        name: "{{ item }}"
+        state: present
+      loop:
+        - glusterfs-client
+        - glusterfs-common
+        - glusterfs-server
+
+    - name: gluster peer probe
+      command: 'gluster peer probe {{ item }}'
+      loop:
+        - "{{ hostvars['GlusterMaster1'].ansible_host }}"
+        - "{{ hostvars['GlusterNode1'].ansible_host }}"
+        - "{{ hostvars['GlusterNode2'].ansible_host }}"
+      register: probe_output
+
+    - debug:
+        var: probe_output

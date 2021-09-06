@@ -1,0 +1,7 @@
+---
+- hosts: heketi
+  serial: 1
+  gather_facts: no
+  roles:
+    - role: roles/heketi
+      tags: [heketi]

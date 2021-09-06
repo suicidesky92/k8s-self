@@ -1,0 +1,64 @@
+{
+    "clusters": [
+        {
+            "nodes": [
+                {
+                    "node": {
+                        "hostnames": {
+                            "manage": [
+                                "{{ gluster.manage.name1 }}"
+                            ],
+                            "storage": [
+                                "{{ gluster.storage.name1 }}"
+                            ]
+                        },
+                        "zone": 1
+                    },
+                    "devices": [
+                        {
+                            "name": "{{ gluster.device.name1 }}",
+                            "destroydata": {{ gluster.device.destroydata1 }}
+                        }
+                   ]
+                },
+                {
+                    "node": {
+                        "hostnames": {
+                            "manage": [
+                                "{{ gluster.manage.name2 }}"
+                            ],
+                            "storage": [
+                                "{{ gluster.storage.name2 }}"
+                            ]
+                        },
+                        "zone": 2
+                    },
+                    "devices": [
+                        {
+                            "name": "{{ gluster.device.name2 }}",
+                            "destroydata": {{ gluster.device.destroydata2 }}
+                        }
+                   ]
+                },
+                {
+                    "node": {
+                        "hostnames": {
+                            "manage": [
+                                "{{ gluster.manage.name3 }}"
+                            ],
+                            "storage": [
+                                "{{ gluster.storage.name3 }}"
+                            ]
+                        },
+                        "zone": 1
+                    },
+                    "devices": [
+                        {
+                            "name": "{{ gluster.device.name3 }}",
+                            "destroydata": {{ gluster.device.destroydata3 }}
+                        }
+                    ]
+                }
+                    ]
+        }
+}

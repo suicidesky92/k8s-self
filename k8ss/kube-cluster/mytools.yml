@@ -1,0 +1,32 @@
+- hosts: all 
+  become: yes
+  tasks:
+   - name: Update apt repo and cache on all Debian/Ubuntu boxes
+     apt: 
+        update_cache: yes 
+        upgrade: yes        
+        force_apt_get: yes 
+        cache_valid_time: 3600
+   - name: install vim-nox
+     apt:
+       name: "vim-nox"
+       state: present
+   - name: install mc
+     apt:
+       name: "mc"
+       state: present
+   - name: install ncdu
+     apt:
+       name: "ncdu"
+       state: present
+   - name: install rsync
+     apt:
+       name: "rsync"
+       state: present
+   - name: install "{{ item }}"
+     apt:
+        name: "{{ item }}"
+        state: present
+     with_items:
+        - htop
+        - sudo
