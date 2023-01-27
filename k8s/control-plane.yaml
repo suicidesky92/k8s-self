@@ -1,8 +1,8 @@
 ## kubeadm init phase upload-certs --upload-certs
 ## kubeadm token create --print-join-command
-## kubeadm join 10.0.0.79:6443 --token 20uyny.34z9fvt1m5tatgu1 --discovery-token-ca-cert-hash sha256:4bd33c54125e2ee9c8e02274e0c25fc31276d45c832b47a27fbfb1821bd05406 --control-plane --certificate-key 687b9cba7759ab6ed6805b6f712d535dc82d909c22d3b78ffbccb972aa5dcea7
+## kubeadm join 10.0.9.1:6443 --token 20uy.t1m5tatgu1 --discovery-token-ca-cert-hash sha256:4bd33c542274e0c25fc31276d45c832b47a27fbfb1821bd05406 --control-plane --certificate-key 687b9cb6f712d535d3b78ffbccb972aa5dcea7
 
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
 kubernetesVersion: stable
-controlPlaneEndpoint: "k8s.netgo.ru:6444"        
+controlPlaneEndpoint: "10.9.9.3:6444"        
