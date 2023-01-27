@@ -2,14 +2,14 @@
 - name: Heketi
   become: True
   block:
-    - name: Download heketi-client from github
-      get_url:
-        url: 'https://github.com/heketi/heketi/releases/download/{{ heketi.version }}/heketi-client-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
-        dest: '/tmp/heketi-client-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
+          #    - name: Download heketi-client from github
+          #      get_url:
+          #        url: 'https://github.com/heketi/heketi/releases/download/{{ heketi.version }}/heketi-client-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
+          #        dest: '/tmp/heketi-client-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
 
     - name: Download heketi from github
       get_url:
-        url: 'https://github.com/heketi/heketi/releases/download/{{ heketi.version }}/heketi-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
+        url: 'https://github.com/heketi/heketi/releases/download/v10.4.0/heketi-v10.4.0-release-10.linux.amd64.tar.gz'
         dest: '/tmp/heketi-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
 
     - name: Create folders
@@ -22,7 +22,7 @@
 
     - name: Unarchive heketi
       unarchive:
-        src: '/tmp/heketi-client-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
+        src: '/tmp/heketi-{{ heketi.version }}.linux.{{ heketi.arch }}.tar.gz'
         dest: /bin
         exclude:
           - heketi.json

@@ -1,0 +1,13 @@
+grafana:
+  ingress:
+    enabled: true
+    annotations:
+        kubernetes.io/ingress.class: nginx
+        cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - grafana.k8s.netgo.ru
+    tls:
+      - secretName: grafana-general-tls
+        hosts:
+        - grafana.k8s.netgo.ru
+

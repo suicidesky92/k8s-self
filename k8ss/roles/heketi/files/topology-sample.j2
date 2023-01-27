@@ -58,6 +58,25 @@
                             "destroydata": {{ gluster.device.destroydata3 }}
                         }
                     ]
+                },
+		{
+                    "node": {
+                        "hostnames": {
+                            "manage": [
+                                "{{ gluster.manage.name4 }}"
+                            ],
+                            "storage": [
+                                "{{ gluster.storage.name4 }}"
+                            ]
+                        },
+                        "zone": 1
+                    },
+                    "devices": [
+                        {
+                            "name": "{{ gluster.device.name4 }}",
+                            "destroydata": {{ gluster.device.destroydata4 }}
+                        }
+                    ]
                 }
                     ]
         }
